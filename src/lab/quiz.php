@@ -193,10 +193,11 @@ echo '
 for($i=1;$i<=$no_ques;$i++) {
 echo '<p>'.$i.'. <b>'.$questions[$i].'</b></p>';
 	if($answers_k[$i-1]==$correct_k[$i-1]) {
-              echo '<p style="color: green;">You answered Correctly</p>';
+              echo '<p style="color: green;">You answered Correctly</p>';}
+              else if($answers_k[$i-1]=='0'){
+			  echo '<p style="color: blue;">You did not answer. <i>'.$option[$answers_k[$i-1]][$i].'</i>.</p>';	
 	} else {
               echo '<p style="color: red;">Wrong: You chose <i>'.$option[$answers_k[$i-1]][$i].'</i>.</p>';
-}
 }
 echo '<input type="button" value="Try again"
 onclick="location=\'./quiz.php?exp='.$exp.'\'">';
