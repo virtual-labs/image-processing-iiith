@@ -138,7 +138,8 @@ echo '
 <th id="time" align="right">Time spent ';
 printf("%02d:%02d",(int)($curr_time/60),($curr_time%60));
 echo '&nbsp;</th>
-
+  </tr></table>
+  </form>
  ';
 
 } else {
