@@ -43,7 +43,7 @@ $html = file_get_html('./content.html');
 
 $vlab_url = "http://virtual-labs.ac.in/"; 
 $css_js   = "./"; 
-$lab_url  = "./index.php";
+$lab_url  = "./index.html";
 $exp_url  =  "./exp/index.php";
 $base_url = $lab_url;
 
