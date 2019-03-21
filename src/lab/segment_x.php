@@ -567,7 +567,7 @@ $("#sliderContent").replaceWith('      <div id="sliderContent" class="ui-corner-
 			<div id="topMenu">
 			<h1 style="text-align: center;">Virtual Lab for IMAGE PROCESSING</h1>
 <div class="home">
-<a href="index.php">home</a>
+<a href="index.html">home</a>
 </div>
 
 			<div class="menu">
