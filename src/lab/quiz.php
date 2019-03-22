@@ -36,6 +36,12 @@ at http://jquery.com
 
 <!--http://www.cssmenumaker.com/builder/menu_info.php?menu=057-->
 <link type="text/css" rel="StyleSheet" href="./menu/menu_style.css" />
+	
+<script>
+  if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+  }
+</script>
 
 
 </head>
