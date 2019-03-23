@@ -195,7 +195,7 @@ echo '<p>'.$i.'. <b>'.$questions[$i].'</b></p>';
 	if($answers_k[$i-1]==$correct_k[$i-1]) {
               echo '<p style="color: green;">You answered Correctly</p>';
 	} else {
-              echo '<p style="color: red;">Wrong: You chose <i>'.$option[$answers_k[$i-1]][$i].'</i>.</p>';
+              echo '<p style="color: red;">You chose the Wrong option <i>'.$option[$answers_k[$i-1]][$i].'</i>.</p>';
 }
 }
 echo '<input type="button" value="Try again"
