@@ -504,8 +504,8 @@ $("button3","#zoom").button();
 			   </ul>
 
 </li>
-<!--<li><a href="references.php?exp=point" target="_self" >References</a>
-</li>-->
+<li><a href="references.php?exp=point" target="_self" >References</a>
+</li>
 <li><a href="summary.php" target="_blank" >Summary</a>
 </li>
 </ul>
