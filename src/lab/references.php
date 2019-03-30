@@ -10,7 +10,7 @@ $exp=$_GET['exp'];
 <!-- We use the jquery javascript library for DOM manipulation and
 some javascript tricks.  We serve the script from Google because it's
 faster than most ISPs.  Get more information and documentation
-at http://jquery.com 
+at http://jquery.com
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 
@@ -28,7 +28,7 @@ at http://jquery.com
 
   <!-- This is 'Backgound_bkgnd_center_jpg' -->
   <div id="Layer-1" class="Backgound_bkgnd_center_jpg"  >
-    
+
 
     <!-- This is 'TopBar_jpg' -->
     <div id="Layer-3" class="TopBar_jpg"  >
@@ -37,11 +37,11 @@ at http://jquery.com
       <div id="Layer-6" class="IIIT"  >
         <img src="images/iiit.png" width="100" height="70" alt="IIIT" class="pngimg" />
 	</div>
-	
+
 			<div id="topMenu">
 			<h1>VIRTUAL LAB in IMAGE PROCESSING</h1>
 <div class="home">
-<a href="index.php">home</a>
+<a href="index.html">home</a>
 </div>
 
 			<div class="menu">
@@ -70,10 +70,8 @@ at http://jquery.com
 </div>
 <div class="experiment" style="text-indent: 20px; background-color: #FFFFFF;
 color: black;" >
-<?php 
+<?php
 include('./'.$exp.'/references.html');
 ?>
 </div>
 </body>
-
-
