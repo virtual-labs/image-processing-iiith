@@ -27,7 +27,18 @@ body {
 //  background-image:url("../images/bck.png");
   background-repeat: repeat; 
 }
-
+img{
+    width:100%;
+    height:auto;
+}
+table{
+    width:100%;
+    overflow-x:auto;
+}
+.experiment{
+    width:100%;
+    height:auto;
+}
 .imageFull {
     position: absolute;
     left: 105px;
