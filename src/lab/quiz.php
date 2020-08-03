@@ -158,12 +158,17 @@ for($i=0;$i<$no_ques;$i++) {
 
 
 echo '
-
+<script>
+  function updateTime()
+  {
+    $curr_time=time()-$starttime;
+    var x = document.getElementbyId('timerElement');
+    x.innerText="printf("%02d:%02d",(int)($curr_time/60),($curr_time%60))";
+  }
+  setInterval(updateTime(),1000);
+</script>
 <center><h2>Result:</h2>'.$c_answers.' of '.$no_ques.'<p><b>'.(int)($c_answers*100/$no_ques).'%</b></p><p>You must study
-harder!</p><p><b>Time Spent</b></p><p>';
-printf("%02d:%02d",(int)($curr_time/60),($curr_time%60));
-echo '</p></center>
-
+harder!</p><p><b>Time Spent</b></p><p><div id='timerElement' </div></p></center>
 <form action="quiz.php?exp='.$exp.'" method="post">
 <input type="hidden" name="points" value="'.$c_answers.'">
 <input type="hidden" name="mode" value="results">
