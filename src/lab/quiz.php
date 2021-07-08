@@ -4,10 +4,20 @@ $exp=$_GET["exp"];
  
 include './'.$exp.'/quiz.php';
 
+
 $starttime = (!isset($_POST['starttime']) ? time() : $_POST['starttime']);
 $answers = (!isset($_POST['answers']) ? "0 0 0" : $_POST['answers']);
 $answer = (isset($_POST['quiz']) ? $_POST['quiz']: 0);
 $ques_no= (!isset($_POST['qnumber']) ? 0 : $_POST['qnumber']);
+
+
+$cipher_method = 'aes-128-ctr';
+$_COOKIE["enc_key[$ques_no]"] = openssl_digest(random_int(2,100), 'SHA256', TRUE);
+$_COOKIE['enc_iv'] = (!isset($_COOKIE['enc_iv']) ? openssl_random_pseudo_bytes(openssl_cipher_iv_length($cipher_method)) : $_COOKIE['enc_iv']);
+$one = openssl_encrypt('1', $cipher_method, $enc_key, 0, $enc_iv);
+$two = openssl_encrypt('2', $cipher_method, $enc_key, 0, $enc_iv);
+$three = openssl_encrypt('3', $cipher_method, $enc_key, 0, $enc_iv);
+$four = openssl_encrypt('4', $cipher_method, $enc_key, 0, $enc_iv);
  
 
 if($ques_no>0) {
@@ -115,17 +125,18 @@ echo '
 
 <table border="0" style="color:black;">
 
-<tr> <td valign="top"><input type="radio" name="quiz" value="1" /></td>
+<tr> <td valign="top"><input type="radio" name="quiz" value='; echo "$one"; echo ' /></td>
 <td>'.$option[1][$ques_no+1].'</td></tr>
 
-<tr><td valign="top"><input type="radio" name="quiz" value="2"/></td>
+<tr><td valign="top"><input type="radio" name="quiz" value='; echo "$two"; echo '/></td>
 <td>'.$option[2][$ques_no+1].'</td></tr>
 
-<tr><td valign="top"><input type="radio" name="quiz" value="3"/></td>
+<tr><td valign="top"><input type="radio" name="quiz" value='; echo "$three"; echo '/></td>
 <td>'.$option[3][$ques_no+1].'</td></tr>
 
-<tr><td valign="top"><input type="radio" name="quiz" value="4"/></td>
+<tr><td valign="top"><input type="radio" name="quiz" value='; echo "$four"; echo '/></td>
 <td>'.$option[4][$ques_no+1].'</td></tr>
+
 
 <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
 </table>
@@ -152,10 +163,19 @@ $correct_k = explode(" ",$correct);
 $answers_k = explode(" ",$answers);
 
 for($i=0;$i<$no_ques;$i++) {
-	if($answers_k[$i]==$correct_k[$i]) {
+	// Decrypting the answers
+  $ans = openssl_decrypt($answers_k[$i], $cipher_method, $_COOKIE["enc_key[$i]"], 0, $_COOKIE(["enc_iv"]));
+  $answers_k[$i] = $ans;
+	if($ans==$correct_k[$i]) {
               $c_answers++;
 }}
 
+// Deleting the cookies
+setcookie("enc_iv", "", time() - 3600);
+
+for($i=0;$i<$no_ques;$i++) {
+  setcookie("enc_key[$i]","",time()-3600);
+}
 
 echo '
 
