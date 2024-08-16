@@ -367,9 +367,9 @@ $("#sliderContent").replaceWith('      <div id="sliderContent" class="ui-corner-
 </div>
 			<div class="menu">
 <ul>
-<li><a href="objective.php?exp=arith" target="_self" >Objective</a>
-</li>
 <li><a href="intro.php?exp=arith" target="_self" >Introduction</a>
+</li>
+<li><a href="objective.php?exp=arith" target="_self" >Objective</a>
 </li>
 <li><a href="theory.php?exp=arith" target="_self" >Theory</a>
 </li>
