@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 $exp=$_GET["exp"];
  
@@ -17,7 +17,7 @@ if($ques_no>0) {
 }
 
 $curr_time=time()-$starttime;
-?>
+?> -->
 
 <head>
 <script class='gtm'>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W59SWTR');</script>
@@ -25,6 +25,7 @@ $curr_time=time()-$starttime;
 <title> Quiz - Virtual Lab in Image Processing</title>
 <!-- The Primary External CSS style sheet. -->
 <link rel="stylesheet" type="text/css" href="./css/psd2css.css" media="screen" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- We use the jquery javascript library for DOM manipulation and
 some javascript tricks.  We serve the script from Google because it's
@@ -34,7 +35,7 @@ at http://jquery.com
 <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
 
 <!-- All the javascript generated for your design is in this file -->
-<script type="text/javascript" src="./js/psd2css.js"></script>
+<script type="text/javascript" src="./js/psd2css.js9"></script>
 
 <!--http://www.cssmenumaker.com/builder/menu_info.php?menu=057-->
 <link type="text/css" rel="StyleSheet" href="./menu/menu_style.css" />
@@ -138,7 +139,6 @@ echo '
 <tr>
 <th  align="left">&nbsp;Total '.$no_ques.' questions</th>
 <th  align="right">Time spent ';
-printf("%02d:%02d",(int)($curr_time/60),($curr_time%60));
 echo '&nbsp;</th>
 </tr></table>
 
@@ -195,14 +195,58 @@ echo '
 for($i=1;$i<=$no_ques;$i++) {
 echo '<p>'.$i.'. <b>'.$questions[$i].'</b></p>';
 	if($answers_k[$i-1]==$correct_k[$i-1]) {
-              echo '<p style="color: green;">You answered Correctly</p>';
+              echo '<p style="color: green;">You answered Correctly</p>';}
+              else if($answers_k[$i-1]=='0'){
+			  echo '<p style="color: blue;">You did not answer. <i>'.$option[$answers_k[$i-1]][$i].'</i>.</p>';	
 	} else {
               echo '<p style="color: red;">Wrong: You chose <i>'.$option[$answers_k[$i-1]][$i].'</i>.</p>';
-}
 }
 echo '<input type="button" value="Try again"
 onclick="location=\'./quiz.php?exp='.$exp.'\'">';
 }
+
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<style>
+p {
+
+  text-align: center;
+  font-size: 30px;
+  color:white;
+  float : right;
+  margin-right:2rem;
+
+}
+</style>
+<script>
+  var countDownDate = new Date().getTime();
+  var x = setInterval(function() {
+
+  var now = new Date().getTime();
+    
+  var distance =  now - countDownDate;
+    
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  document.getElementById("demo").innerHTML = minutes + ":" + seconds;
+    
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
 
 ?>
