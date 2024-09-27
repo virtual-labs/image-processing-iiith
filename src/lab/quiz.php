@@ -137,13 +137,11 @@ echo '
 </tr>
 <tr>
 <th  align="left">&nbsp;Total '.$no_ques.' questions</th>
-<th  align="right">Time spent ';
+<th  id="time" align="right">Time spent ';
 printf("%02d:%02d",(int)($curr_time/60),($curr_time%60));
 echo '&nbsp;</th>
-</tr></table>
 
-</form>
- ';
+';
 
 } else {
 $c_answers=0;
@@ -206,6 +204,28 @@ onclick="location=\'./quiz.php?exp='.$exp.'\'">';
 
 
 ?>
+<script> 
+var timeLabel = document.getElementById("time");
+  var totalSeconds = <?php echo $curr_time ?>;
+  setInterval(setTime, 1000);
+  function resetTime(){
+    totalSeconds = 0;
+  }
+  function setTime() {
+    ++totalSeconds;
+    secondsLabel = pad(totalSeconds % 60);
+    minutesLabel = pad(parseInt(totalSeconds / 60));
+    timeLabel.innerHTML = 'Time Spent ' + minutesLabel + ':' + secondsLabel
+  }
+  function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+  }    
+</script>
 </div>
 </div>
 </body>
