@@ -198,6 +198,8 @@ echo '<p>'.$i.'. <b>'.$questions[$i].'</b></p>';
               echo '<p style="color: green;">You answered Correctly</p>';
 	} else {
               echo '<p style="color: red;">Wrong: You chose <i>'.$option[$answers_k[$i-1]][$i].'</i>.</p>';
+      echo '<p style="color: red;">Correct Answer:<i>'.$option[$correct_k[$i-1]][$i].'</i>.</p>';
+
 }
 }
 echo '<input type="button" value="Try again"
