@@ -190,6 +190,7 @@ $(".start").css("top",pos_y*281/num_blocks +document.getElementById("Layer-4").o
 
 
 <script type="text/javascript">
+	$("html").css("display","none");
 function doTransform(){
 
     	
@@ -361,7 +362,8 @@ $("#sliderContent").replaceWith('      <div id="sliderContent" class="ui-corner-
   imageWidth: 32,
   });
   toggleMosaic();
-    $("#choice").buttonset();
+  $("#Mosaic").css("display","none");
+  $("#choice").buttonset();
   $("#choice").button("refresh");
   $(".advanced").hide();
   
@@ -410,8 +412,6 @@ $("#sliderContent").replaceWith('      <div id="sliderContent" class="ui-corner-
 	?>
 });
 
-
-
 </script>
 </head>
 
@@ -423,7 +423,7 @@ $("#sliderContent").replaceWith('      <div id="sliderContent" class="ui-corner-
     
 
     <!-- This is 'Mosaic_jpg' -->
-    <div id="Mosaic" class="Mosaic_jpg"  >
+    <div id="Mosaic" class="Mosaic_jpg">
       <img src="images/Mosaicdiff.png" width="513" height="513" alt="Mosaic" /></div>
 
     <!-- This is 'Thumbnails_jpg' -->
@@ -604,6 +604,10 @@ $("#sliderContent").replaceWith('      <div id="sliderContent" class="ui-corner-
 <input type="radio" name="type2" value="8" />8 connectivity<br/>
 </div>
 </div>
+
+	<script type="text/javascript">
+		$("html").css("display","block");
+	</script>
 
 </body>
 
